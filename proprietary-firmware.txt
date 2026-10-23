@@ -1,17 +1,24 @@
-# All unpinned blobs below are extracted from xun OS2.0.204.0.VMUMIXM
+# All unpinned blobs below are extracted from xun OS2.0.209.0.VMUMIXM
+#
+# storsec.img is deliberately absent, and adding it would not work. It is a
+# single partition, not an A/B pair, and extract-utils writes every image in
+# this file into AB_OTA_PARTITIONS once one entry is marked ;AB. update_engine
+# then looks for storsec_a, which the device does not have, and stops the
+# install. See docs/decisions/0001-blob-rebase-209.md.
 
-abl.img;AB
-bluetooth.img;AB
-devcfg.img;AB
-dsp.img;AB
-featenabler.img;AB
-hyp.img;AB
-imagefv.img;AB
-keymaster.img;AB
-modem.img;AB
-qupfw.img;AB
-rpm.img;AB
-tz.img;AB
-uefisecapp.img;AB
-xbl.img;AB
-xbl_config.img;AB
+abl.img;AB|591ea0d705605bbca890a70e4734126b1fb8e7a4
+bluetooth.img;AB|761addfefded19068821ba30d8fb900497b53739
+devcfg.img;AB|db124282b34b85d863f8d20f4ce36aa41eb91072
+dsp.img;AB|12b3fc4ae2dce47a68ae5462403d71a1f7d86178
+featenabler.img;AB|ae30cb411b38685caeee75c00b626dff51627c63
+hyp.img;AB|3377b64ded3aa24c658b4268a8ca160decfa9942
+imagefv.img;AB|6c55ab29d75787f97dd8f4b946b6b8a2ea7b593a
+keymaster.img;AB|9f1b69c6188b27911a3bbe01095a66f9098f9e05
+modem.img;AB|f6a56a9eae7a12075d5d989d5428d9d4794f97a4
+multiimgoem.img;AB|5188431849b4613152fd7bdba6a3ff0a4fd6424b
+qupfw.img;AB|e050ea9cc99e192192289d026f8c4884393d4522
+rpm.img;AB|8a0c381eaf58b357889e01c1bf1b18a32ae4d641
+tz.img;AB|e84144f8a049a74bdaaa50958fc586701c8bf018
+uefisecapp.img;AB|5eed35cb2a7cfed6eee4eba3971dc363797b67fe
+xbl.img;AB|9ce7adab1e3fe6965486f7685151a115a352117e
+xbl_config.img;AB|3efa6e80893f0532c9479abf7e012238f9b38470
