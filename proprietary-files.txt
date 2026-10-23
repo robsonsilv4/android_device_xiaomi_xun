@@ -77,6 +77,7 @@ vendor/lib/libkaraokepal.so|aa8d8af62e1fbd422f76d673d5e2a181374b7fe2
 vendor/lib/liblx-ar_util.so|322aa76474d3a2636cc2e436630bf658c93490d2
 vendor/lib/liblx-osal.so|7391f7d52351ba467f2d16e8a32056338efa7ce0
 vendor/lib/libmcs.so|49f4f90c4a29ec68e91c777c2904304e934aa5f7
+vendor/lib/libmisight.so|9d67aef913887e69d3031ec890a4185f1730f2cf
 vendor/lib/libqtigefar.so|903cb6e5501f78a973f1bd30985562ca98402943
 vendor/lib/vendor.qti.hardware.pal@1.0-impl.so|f8361f007ff2955c49f64a95ab74f427c9ccaf1d
 vendor/lib64/hw/audio.primary.bengal.so;DISABLE_CHECKELF|5efe3db76dea3e1349b96067023dab0abdbc9d20
