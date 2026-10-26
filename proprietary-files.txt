@@ -923,7 +923,7 @@ vendor/etc/init/init.qti.media.rc|ef1332dce782443ffbd36b28c8349611535c6d5a
 vendor/etc/init/vendor.qti.media.c2@1.0-service.rc|542d2ae2a92ee21dbb63716ff49392e8e6e433f4
 vendor/etc/init/vendor.qti.media.c2audio@1.0-service.rc|51841b9c67dd26b7fe82e24109f1e0a663a3e04a
 vendor/etc/media_khaje_v0/video_system_specs.json|6343799c6a7c24975ff552eb48d7f7e2e2577d2e
-vendor/etc/vintf/manifest/c2_manifest_vendor_xun.xml|b2bf55472f4729c358ba86d310bed9397e231761
+vendor/etc/vintf/manifest/c2_manifest_vendor_xun.xml|f3312e1e4bf987f5c7e15ee08a72e600db10e668
 vendor/etc/vintf/manifest/c2_manifest_vendor_audio.xml|7801d5fb9104883e33e874011caa25c28b7bec71
 vendor/lib/libEvrcSwCodec.so|1523d70f443e39ded0e57bf49a2b58ade792ee98
 vendor/lib/libQcelp13SwCodec.so|82707a17fc60dc7e85adff10df002cd6dedea96f
