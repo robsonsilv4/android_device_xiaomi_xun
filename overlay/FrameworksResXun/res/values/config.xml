@@ -41,4 +41,9 @@
     <!-- If true, the screen can be rotated via the accelerometer in all 4
          rotations as the default behavior. -->
     <bool name="config_allowAllRotations">true</bool>
+
+    <!-- Enable automatic brightness. The framework default is false and this
+         product does not inherit the sm6225-common overlay that raises it.
+         See docs/decisions/0003-enable-auto-brightness.md. -->
+    <bool name="config_automatic_brightness_available">true</bool>
 </resources>
