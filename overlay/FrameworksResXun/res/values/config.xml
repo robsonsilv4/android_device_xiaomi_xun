@@ -46,4 +46,35 @@
          product does not inherit the sm6225-common overlay that raises it.
          See docs/decisions/0003-enable-auto-brightness.md. -->
     <bool name="config_automatic_brightness_available">true</bool>
+
+    <!-- Auto-brightness curve. The framework arrays are empty and must be
+         overridden per device; with them empty no BrightnessMappingStrategy is
+         created and the light sensor is never subscribed. The lux levels and
+         the matching backlight values are the first cut, tunable on the
+         device. See docs/decisions/0003-enable-auto-brightness.md. -->
+    <integer-array name="config_autoBrightnessLevels">
+        <item>1</item>
+        <item>4</item>
+        <item>10</item>
+        <item>40</item>
+        <item>100</item>
+        <item>325</item>
+        <item>600</item>
+        <item>1200</item>
+        <item>2400</item>
+        <item>6000</item>
+    </integer-array>
+    <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>8</item>
+        <item>15</item>
+        <item>25</item>
+        <item>40</item>
+        <item>60</item>
+        <item>85</item>
+        <item>115</item>
+        <item>150</item>
+        <item>190</item>
+        <item>225</item>
+        <item>255</item>
+    </integer-array>
 </resources>
