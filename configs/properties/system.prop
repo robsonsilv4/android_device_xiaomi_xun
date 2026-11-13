@@ -57,7 +57,7 @@ persist.vendor.ssr.enable_ramdumps=1
 persist.vendor.ssr.restart_level=ALL_ENABLE
 
 # Updater
-lineage.updater.uri=https://raw.githubusercontent.com/roms-experimental/OTA/refs/heads/lineageos/xun.json
+lineage.updater.uri=https://raw.githubusercontent.com/robsonsilv4/lineageos-xun-ota/main/xun.json
 
 # USB
 ro.boot.usb.dwc3_msm=4e00000.ssusb
