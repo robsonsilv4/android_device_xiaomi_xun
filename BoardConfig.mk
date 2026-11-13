@@ -154,6 +154,18 @@ BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := bengal
 TARGET_ENFORCES_QSSI := true
 
+# Gralloc handle layout. With QSSI the platform lands in the 5.15 legacy family,
+# and BoardConfigQcom turns on the custom content metadata field in
+# private_handle_t, so the source display libraries expect 24 integer slots.
+# The 209 display blobs this tree ships were built without that field:
+# libgralloccore.so and libqdMetaData.so from the package validate 23
+# (BufferManager::FreeBuffer and the qdMetaData validator compare numInts with
+# 0x17). Mixing the two failed every buffer import with "Invalid gralloc
+# handle ints(23/24)", made KGSL_GPUOBJ_IMPORT return EINVAL and aborted
+# SurfaceFlinger in RenderEngine. Keep the source libraries on the 209 layout.
+# See patches/0007-xun-gralloc-handle-209-layout.md.
+TARGET_GRALLOC_HANDLE_HAS_CUSTOM_CONTENT_MD_RESERVED_SIZE := false
+
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/configs/properties/odm.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/properties/product.prop
