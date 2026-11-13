@@ -1,2 +1,12 @@
 # Media
 service.sf.present_timestamp    u:object_r:exported_system_prop:s0
+
+# Build identity. AOSP maps the ro.product.odm build props to build_odm_prop
+# but omits marketname, so the SKU build prop the stock ODM imports was set by
+# vendor_init against default_prop and denied, leaving the property empty.
+ro.product.odm.marketname       u:object_r:build_odm_prop:s0 exact string
+
+# Ril. The vendor init trigger copies this to ro.ril.oem.btmac. The stock ODM
+# never sets it on this SKU, but the read still has to pass, and
+# ro.ril.oem.wifimac is mapped the same way in the shared tree.
+persist.ro.ril.oem.btmac        u:object_r:vendor_radio_prop:s0 exact string

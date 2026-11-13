@@ -5,6 +5,21 @@ genfscon sysfs /devices/platform/soc/soc:spf_core_platform/soc:spf_core_platform
 
 # PMIC sysfs nodes
 genfscon sysfs /devices/platform/soc/soc:qcom,nopmi-chg/qcom-battery/odm_battery/batt_manufacturer    u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,nopmi-chg/iio:device                                   u:object_r:vendor_sysfs_iio:s0
+genfscon sysfs /devices/platform/soc/4ac0000.qcom,qupv3_0_geni_se/4a84000.i2c/i2c-0/0-0060/iio:device u:object_r:vendor_sysfs_iio:s0
+genfscon sysfs /devices/platform/soc/4ac0000.qcom,qupv3_0_geni_se/4a84000.i2c/i2c-0/0-006a/iio:device u:object_r:vendor_sysfs_iio:s0
+genfscon sysfs /devices/platform/soc/4ac0000.qcom,qupv3_0_geni_se/4a88000.i2c/i2c-1/1-0055/iio:device u:object_r:vendor_sysfs_iio:s0
+
+# MMC queue tuning nodes touched by init.qcom.post_boot.sh and init.rc.
+# The bengal policy labels mmcblk0/queue/read_ahead_kb only; the same SoC
+# policy for trinket labels the BDI node and the two boot partitions, and the
+# SD controller node is missing from both. Without these the writes are denied
+# and the tuning silently does not happen.
+genfscon sysfs /devices/virtual/bdi                                                                   u:object_r:vendor_sysfs_mmc_host:s0
+genfscon sysfs /devices/platform/soc/4744000.sdhci/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0boot0/queue/read_ahead_kb    u:object_r:vendor_sysfs_mmc_host:s0
+genfscon sysfs /devices/platform/soc/4744000.sdhci/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0boot1/queue/read_ahead_kb    u:object_r:vendor_sysfs_mmc_host:s0
+genfscon sysfs /devices/platform/soc/4784000.sdhci/mmc_host/mmc1/mmc1:aaaa/block/mmcblk1/queue/read_ahead_kb                 u:object_r:vendor_sysfs_mmc_host:s0
+genfscon sysfs /devices/platform/soc/4744000.sdhci/mmc_host/mmc0/mmc0:0001/block/mmcblk0/queue/discard_max_bytes             u:object_r:vendor_sysfs_mmc_host:s0
 
 # Touchscreen
 genfscon proc /tp_gesture    u:object_r:sysfs_tp_touchfeature:s0

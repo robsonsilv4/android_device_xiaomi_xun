@@ -1,0 +1,9 @@
+# The eMMC queue nodes are labelled vendor_sysfs_mmc_host above. The vendor
+# init shell already writes them; init itself writes the same kind of node when
+# it applies the discard limit to the rootdisk alias in init.rc.
+allow init vendor_sysfs_mmc_host:file w_file_perms;
+
+# Do not add an allow for init on debugfs_mmc. domain.te keeps init out of the
+# debugfs restriction exemption, so the chown of the eMMC ext_csd that
+# dumpstate.rc asks for is denied by design. The denial is expected and listed
+# in scripts/avc-expected.txt.
