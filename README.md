@@ -1,22 +1,29 @@
-# Device tree for the Xiaomi Redmi Pad SE (xun)
+# android_device_xiaomi_xun
 
-## Device specifications
+Device tree for the Xiaomi Redmi Pad SE (`xun`), maintained for the personal
+LineageOS 22.2 port at <https://github.com/robsonsilv4/lineageos-xun>.
 
-| Basic                   | Spec                                                           |
-| ----------------------- | :------------------------------------------------------------- |
-| SoC                     | Qualcomm Snapdragon 680 (6nm)                                  |
-| CPU                     | Octa-core (4x2.4 GHz Kryo 265 Gold & 4x1.9 GHz Kryo 265 Silver)|
-| GPU                     | Adreno 610                                                     |
-| Memory                  | 4/6/8GB                                                        |
-| Shipped Android version | 13                                                             |
-| Storage                 | 128/256GB                                                      |
-| MicroSD                 | MicroSDXC                                                      |
-| Battery                 | Non-removable Li-Po 8000 mAh                                   |
-| Dimensions              | 255.5 x 167.1 x 7.4 mm                                         |
-| Display                 | 1200 x 1920 pixels, 11 inches                                  |
-| Rear Camera             | 8 MP, f/2.0, (wide), 1/4", 1.12µm, AF                          |
-| Front Camera            | 5 MP, f/2.2, (ultrawide), 1/5", 1.12µm                         |
+The repository is standalone. It started as a fork of
+[Xiaomi-Redmi-Pad-SE-Resources/android_device_xiaomi_xun](https://github.com/Xiaomi-Redmi-Pad-SE-Resources/android_device_xiaomi_xun),
+which is archived, and `lineage-22.2` continues from that tree at
+`dcaaf04155eeee4ea2cde91ce9aca6dfd5e4f9b9`.
 
-## Device Picture
+The branch carries the changes the port needs to boot and behave on the last
+stock firmware, OS2.0.209.0.VMUMIXM:
 
-![Xiaomi Redmi Pad SE](https://i02.appmifile.com/699_operator_sg/05/09/2023/0b581a06715510c656552d79ca19d62a.png?f=webp)
+- the vendor blobs regenerated from 209, plus the 32-bit `libmisight` and the
+  209 `libgralloccore` that the source build cannot supply
+- the product identity that names the 209 base
+- the prebuilt `system_dlkm` modules, the gralloc handle layout and the
+  boot-time SELinux labels
+- the Updater URI for this port's OTA channel
+- the removal of the Dolby manager and the dormant Dolby DAP engine
+- the `usbotg` volume flag that makes a USB disk visible to apps
+- the automatic brightness change, applied and then reverted because the
+  device has no light sensor that updates while the camera is closed
+
+The manifest pins the build commit, the parent of the commit that added this
+README. Do not force-push `lineage-22.2`.
+
+Each change has a rationale and a removal condition in the port's `patches/`
+directory: <https://github.com/robsonsilv4/lineageos-xun/tree/main/patches>.
